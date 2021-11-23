@@ -118,45 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutWindows.Text" xml:space="preserve">
-    <value>Sobre Windows</value>
+    <value>Windows 정보</value>
   </data>
   <data name="Copied" xml:space="preserve">
-    <value>¡Copiado!</value>
+    <value>복사 완료!</value>
   </data>
   <data name="CopyButton.Content" xml:space="preserve">
-    <value>Copiar</value>
+    <value>복사</value>
   </data>
   <data name="Edition.Text" xml:space="preserve">
-    <value>Edición</value>
+    <value>에디션</value>
   </data>
   <data name="Experience.Text" xml:space="preserve">
-    <value>Experiencia</value>
+    <value>경험</value>
   </data>
   <data name="ExperiencePack" xml:space="preserve">
-    <value>Paquete de experiencia de características de Windows</value>
+    <value>Windows Feature Experience Pack</value>
   </data>
   <data name="InstalledOn.Text" xml:space="preserve">
-    <value>Instalado en</value>
+    <value>설치 날짜</value>
   </data>
   <data name="LegalLabel.Text" xml:space="preserve">
-    <value>Legal</value>
+    <value>적법</value>
   </data>
   <data name="LicenseTo.Text" xml:space="preserve">
-    <value>Este producto está licenciado bajo la Licencia de Software de Microsoft a:</value>
+    <value>이 제품은 Microsoft 소프트웨어 사용 조건에 따라 다음 사용자가 사용할 수 있습니다:</value>
   </data>
   <data name="OKButton.Content" xml:space="preserve">
-    <value>Aceptar</value>
+    <value>OK</value>
   </data>
   <data name="OSBuild.Text" xml:space="preserve">
-    <value>Compilación del SO</value>
+    <value>OS 빌드</value>
   </data>
   <data name="Trademark.Text" xml:space="preserve">
-    <value>El sistema operativo Windows y su interfaz de usuario están protegidos por marcas comerciales y otros derechos de propiedad intelectual pendientes o existentes en Estados Unidos y otros países o regiones.</value>
+    <value>Windows 운영 체제 및 해당 사용자 인터페이스는 미국, 대한민국 및 기타 나라에서 상표권 및 출원 중이거나 등록된 지적 재산권에 의해 보호됩니다.</value>
   </data>
   <data name="Version.Text" xml:space="preserve">
-    <value>Versión</value>
+    <value>버전</value>
   </data>
   <data name="WindowsSpecifications.Text" xml:space="preserve">
-    <value>Epecificaciones de Windows/value>
+    <value>Windows 사양</value>
   </data>
 </root>
