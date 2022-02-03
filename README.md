@@ -1,5 +1,7 @@
 # WinverUWP
-A UWP version of winver
+A UWP version of winver.
+
+[Microsoft Store](https://www.microsoft.com/p/winver-uwp/9n60s2vfmb7l) | [Discord channel](https://discord.gg/MUyRGUN4Ny) | [Privacy Policy](/PRIVACY.md)
 
 ![WinverUWP on Windows 11 (Dev)](/images/WinverUWP-dark-11.png)
 
@@ -7,21 +9,34 @@ A UWP version of winver
 Windows 10 October 2018 Update (1809) or newer using the x86, x64 or ARM64 CPU architecture.
 
 ## Installing
-1. Download the latest version from [GitHub Releases](https://github.com/dongle-the-gadget/WinverUWP/releases).
-2. Download the ZIP file and extract it.
+**Note:** You need to manually uninstall Release 1.x as Release 2.0 and newer will not automatically uninstall.
+### For Release 2 and newer
+#### Using Microsoft Store (recommended)
+You can download WinverUWP for free in [Microsoft Store](https://www.microsoft.com/p/winver-uwp/9n60s2vfmb7l). This option allows you to get automatic updates.
+
+#### Package files
+Currently unavailable.
+
+### For Release 1.x
+**Note:** These builds don't support ARM64 and has been officially deprecated.
+
+1. Download [Release 1.1](https://github.com/dongle-the-gadget/WinverUWP/releases/download/v1.1.0.0/WinverUWPPackage_1.1.0.0.zip).
+2. Extract the ZIP file.
 3. Run the Install.ps1 file and the application will be installed.
    
    **Note:** During installation, PowerShell may ask you about execution policies and administrator privileges. For execution scopes, select **Unrestricted**, and for administrator privileges (User Account Control), select Yes or enter in your administrator credentials.
 
+<!--
 ## Launching
 You could launch this program in one of these three ways:
 - As an app entry in Start, Search, PowerToys Run, ... (whatever has you)
 - Using the app execution alias: `winveruwp.exe`
 - Using the app protocol: `winveruwp://`
+-->
 
 ## Contributing
 ### Language translation
-Starting with Release 1.1, you can now have WinverUWP in multiple languages! If you want to help translate, follow the steps below:
+If you want to help translate, follow the steps below:
 1. Create a fork of this repository.
 2. In `WinverUWP\Strings` folder, create a new folder with your locale name (i.e. "en-us" for American English).
 3. In the newly created folder, create a `Resources.resw` file, you may copy it from another locale folder as a reference.
@@ -45,7 +60,7 @@ Starting with Release 1.1, you can now have WinverUWP in multiple languages! If 
    |OKButton.Content|OK|
    |ExperiencePack|Windows Feature Experience Pack|
    |Copied|Copied!|
-5. In the `WinverUWP.Package\Package.appxmanifest` file, look for `<Resources>`.
+5. In the `WinverUWP\Package.appxmanifest` file, look for `<Resources>`.
 6. Create a new line after the tag with the value: `<Resource Language="(your locale here)"/>`.
 7. Commit your translations into your fork.
 8. Create a Pull request and wait for me to review it.

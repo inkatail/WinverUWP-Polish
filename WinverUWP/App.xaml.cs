@@ -1,27 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text.Json;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.ApplicationModel.AppService;
-using Windows.ApplicationModel.Background;
-using Windows.ApplicationModel.Core;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Core.Preview;
+using Windows.Foundation.Metadata;
 using Windows.UI.ViewManagement;
+using Windows.UI.WindowManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Navigation;
-using WinverUWP.InterCommunication;
 
 namespace WinverUWP
 {
@@ -30,9 +17,7 @@ namespace WinverUWP
     /// </summary>
     sealed partial class App : Application
     {
-        public static AppServiceConnection Connection { get; private set; }
-
-        private BackgroundTaskDeferral Deferral;
+        public static AppWindow AppWindow { get; private set; }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -43,7 +28,7 @@ namespace WinverUWP
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
-            ApplicationView.PreferredLaunchViewSize = new Size(500, 700);
+            ApplicationView.PreferredLaunchViewSize = new Size(500, 675);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 
@@ -60,21 +45,6 @@ namespace WinverUWP
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             StartApp();
-        }
-
-        protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
-        {
-            var taskInstance = args.TaskInstance;
-            if (taskInstance.TriggerDetails is AppServiceTriggerDetails triggerDetails)
-            {
-                Deferral = taskInstance.GetDeferral();
-                taskInstance.Canceled += (s, e) =>
-                {
-                    Deferral?.Complete();
-                };
-                Connection = triggerDetails.AppServiceConnection;
-                Connection.RequestReceived += MainPage.Current.Connection_RequestReceived;
-            }
         }
 
         /// <summary>
@@ -101,53 +71,34 @@ namespace WinverUWP
             deferral.Complete();
         }
 
-        private void StartApp()
+        private async void StartApp()
         {
-            Frame rootFrame = Window.Current.Content as Frame;
-
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
-            if (rootFrame == null)
+            Frame frame;
+            if (!ApiInformation.IsTypePresent("Windows.UI.WindowManagement.AppWindow"))
             {
-                // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
+                frame = Window.Current.Content as Frame;
+                if (frame != null)
+                    return;
+                frame = new Frame();
+                frame.NavigationFailed += OnNavigationFailed;
+                frame.Navigate(typeof(MainPage));
+                Window.Current.Content = frame;
 
-                rootFrame.NavigationFailed += OnNavigationFailed;
-
-                // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
+                // Ensure the current window is active
+                Window.Current.Activate();
             }
-
-            if (rootFrame.Content == null)
+            else
             {
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                rootFrame.Navigate(typeof(MainPage));
-
-                // Register close
-                SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += App_CloseRequested;
+                if (AppWindow != null)
+                    return;
+                frame = new Frame();
+                frame.NavigationFailed += OnNavigationFailed;
+                AppWindow = await AppWindow.TryCreateAsync();
+                ElementCompositionPreview.SetAppWindowContent(AppWindow, frame);
+                frame.Navigate(typeof(MainPage));
+                await AppWindow.TryShowAsync();
+                await ApplicationView.GetForCurrentView().TryConsolidateAsync();
             }
-            // Ensure the current window is active
-            Window.Current.Activate();
-        }
-
-        private void App_CloseRequested(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
-        {
-            var deferral = e.GetDeferral();
-            if (Connection != null)
-            {
-                InterCommunicationMessage msg = new InterCommunicationMessage { Type = InterCommunicationType.Exit };
-                string json = JsonSerializer.Serialize(msg);
-                ValueSet valueSet = new ValueSet
-                {
-                    { InterCommunicationConstants.MessageKey, json }
-                };
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-                Connection.SendMessageAsync(valueSet);
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            }
-            deferral.Complete();
         }
     }
 }
