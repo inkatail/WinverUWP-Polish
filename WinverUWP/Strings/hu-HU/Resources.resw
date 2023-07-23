@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,45 +118,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutWindows.Text" xml:space="preserve">
-    <value>Acerca do Windows</value>
+    <value>Windows - névjegy</value>
   </data>
   <data name="CopiedButton.Text" xml:space="preserve">
-    <value>Copiado</value>
+    <value>Másolás kész</value>
   </data>
   <data name="CopyButton.Text" xml:space="preserve">
-    <value>Copiar</value>
+    <value>Másolás</value>
   </data>
   <data name="Edition.Text" xml:space="preserve">
-    <value>Edição</value>
+    <value>Kiadás</value>
   </data>
-  <data name="Experience.Text" xml:space="preserve">
-    <value>Experiência</value>
-  </data>
-  <data name="ExperiencePack" xml:space="preserve">
-    <value>Windows Feature Experience Pack</value>
+  <data name="Expiration.Text" xml:space="preserve">
+    <value>Minőség</value>
   </data>
   <data name="InstalledOn.Text" xml:space="preserve">
-    <value>Instalado em</value>
+    <value>Telepítés dátuma</value>
   </data>
   <data name="LegalLabel.Text" xml:space="preserve">
-    <value>Legal</value>
+    <value>Jogi információk</value>
   </data>
   <data name="LicenseTo.Text" xml:space="preserve">
-    <value>Este produto está licenciado de acordo com os Termos de Licenciamento para Software Microsoft para:</value>
+    <value>A termék a Microsoft szoftverlicenc-szerződés hatálya alá esik. A termék használatára jogosult:</value>
   </data>
   <data name="OKButton.Content" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="OSBuild.Text" xml:space="preserve">
-    <value>Compilação do SO</value>
+    <value>Operációs rendszer buildszáma</value>
   </data>
   <data name="Trademark.Text" xml:space="preserve">
-    <value>O sistema operativo Windows e sua interface de utilizador estão protegidos por marca registrada e outros direitos de propriedade intelectual pendentes ou existentes nos Estados Unidos e noutros países/regiões.</value>
+    <value>A Windows operációs rendszert és felhasználói felületét védjegyek, továbbá oltalom alatt álló vagy bejegyzett szellemi tulajdonjogok védik az Egyesült Államokban, illetve más országokban vagy régiókban.</value>
   </data>
   <data name="Version.Text" xml:space="preserve">
-    <value>Versão</value>
+    <value>Verzió</value>
   </data>
   <data name="WindowsSpecifications.Text" xml:space="preserve">
-    <value>Especificações do Windows</value>
+    <value>Windows-specifikációk</value>
   </data>
 </root>

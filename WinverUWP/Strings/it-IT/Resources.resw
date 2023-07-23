@@ -120,20 +120,17 @@
   <data name="AboutWindows.Text" xml:space="preserve">
     <value>Informazioni su Windows</value>
   </data>
-  <data name="Copied" xml:space="preserve">
+  <data name="CopiedButton.Text" xml:space="preserve">
     <value>Copiato!</value>
   </data>
-  <data name="CopyButton.Content" xml:space="preserve">
+  <data name="CopyButton.Text" xml:space="preserve">
     <value>Copia</value>
   </data>
   <data name="Edition.Text" xml:space="preserve">
     <value>Edizione</value>
   </data>
-  <data name="Experience.Text" xml:space="preserve">
-    <value>Funzionalità</value>
-  </data>
-  <data name="ExperiencePack" xml:space="preserve">
-    <value>Windows Feature Experience Pack</value>
+  <data name="Expiration.Text" xml:space="preserve">
+    <value>Scadenza</value>
   </data>
   <data name="InstalledOn.Text" xml:space="preserve">
     <value>Installato il</value>
